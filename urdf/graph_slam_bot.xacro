@@ -4,6 +4,7 @@
 	
 	<xacro:include filename="$(find graph_slam_bot)/urdf/graph_slam_bot.gazebo"/>
 
+	<!-- Robot Base -->
 	<link name="robot_footprint"></link>
 
 	<joint name="robot_footprint_joint" type="fixed">
@@ -13,7 +14,7 @@
 	</joint>
 
 	
-	<!-- Robot Chassis-->
+	<!-- Robot Chassis -->
 	<link name="chassis">
 		
 		<pose>0 0 0.1 0 0 0</pose>
@@ -178,6 +179,22 @@
 		<parent link="chassis"/>
 		<child link="camera"/>
 	</joint>
+
+	<!-- generate an optical frame 
+      http://www.ros.org/reps/rep-0103.html#suffix-frames
+      so that ros and opencv can operate on the camera frame correctly 
+      -->
+    <link name="camera_link_optical">
+  	</link>
+
+  	<joint name="camera_optical_joint" type="fixed">
+    <!-- these values have to be these values otherwise the gazebo camera
+        image won't be aligned properly with the frame it is supposedly
+        originating from -->
+    	<origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
+    	<parent link="camera"/>
+    	<child link="camera_link_optical"/>
+  	</joint>
 
 
 	<!-- Laser Rangefinder-->
