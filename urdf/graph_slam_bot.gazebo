@@ -21,6 +21,7 @@
   <!-- RGBD Camera -->
 
   <gazebo reference="camera">
+  	<material>Gazebo/Red</material>
     <sensor type="depth" name="camera1">
         <always_on>1</always_on>
         <update_rate>20.0</update_rate>
@@ -136,5 +137,15 @@
     </sensor>
   </gazebo>
 
+  <gazebo reference="left_wheel">
+  	<material>Gazebo/Green</material>
+  </gazebo>
 
+  <gazebo reference="right_wheel">
+  	<material>Gazebo/Green</material>
+  </gazebo>
+
+  <gazebo reference="chassis">
+  	<material>Gazebo/Blue</material>
+  </gazebo>
 </robot>
