@@ -62,7 +62,7 @@
     </node>
     
     <!-- visualization with rtabmapviz -->
-    <!--
+    
     <node pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz" args="-d $(find rtabmap_ros)/launch/config/rgbd_gui.ini" output="screen">
 
       <param name="odom_frame_id"       		type="string" value="odom"/>
@@ -76,6 +76,6 @@
       <remap from="rgb/camera_info" to="$(arg camera_info_topic)"/>
     
     </node>
-	-->
+	
   </group>
 </launch>
